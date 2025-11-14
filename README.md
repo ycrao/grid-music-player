@@ -84,20 +84,20 @@ proj1/
 ### 自定义与参数
 
 - 栅格大小：当前为 4 列×3 行；可在 `style.css` 的 `.grid` 规则中调整
-- 扩展占位：默认 2×2，可在 `src/App.vue` 的 `expandTile` 中更改 `span`
-- 歌词动效：效果集合定义在 `src/App.vue:57` 的 `effects`，可增删或调节延时
-- 大字错位：避让与候选点逻辑在 `src/App.vue:58` 的 `placeOverlayChar`
-- 波形样式：画布尺寸与阴影在 `style.css:35-37`，绘制逻辑在 `src/App.vue:59`
+- 扩展占位：默认 2×2，可在 `src/App.vue` 的 `expandTile` 调整 `span`
+- 歌词动效：集合在 `src/App.vue` 的 `buildLine` 中的 `effects`
+- 大字错位：避让与候选点逻辑在 `src/App.vue` 的 `placeOverlayChar`
+- 波形样式：画布尺寸与阴影在 `style.css` 的 `.viz`，绘制逻辑在 `src/App.vue` 的 `startVisualizer`
 
 ### 关键代码位置
 
-- 栅格与扩展：`src/App.vue:46-53`
-- 播放入口与状态切换：`src/App.vue:63`
-- LRC 解析：`src/App.vue:49`
-- 歌词渲染（单行、动效、避让）：`src/App.vue:56-58, 64`
-- 水平波形绘制与强拍检测：`src/App.vue:59`
-- 歌词脉冲联动：`src/App.vue:64`
-- 样式与动画：`style.css:11, 18-37`
+- 栅格与扩展：`src/App.vue` 的 `tileStyle`、`isCollapsed`、`expandTile`
+- 播放与状态切换：`src/App.vue` 的 `playIndex`、`toggle`
+- LRC 解析：`src/App.vue` 的 `parseLrc`
+- 歌词渲染与避让：`src/App.vue` 的 `buildLine`、`updateLyric`、`placeOverlayChar`
+- 水平波形与强拍：`src/App.vue` 的 `startVisualizer`
+- 歌词脉冲联动：`src/App.vue` 的 `setPulse`
+- 样式与动画：`style.css` 中的栅格、卡片、歌词与 `.viz`
 
 ### 构建与部署
 
