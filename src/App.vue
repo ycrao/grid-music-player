@@ -45,7 +45,8 @@ const tileClass=i=>({active:currentIndex.value===i,shrink:currentIndex.value!==-
 const basePos=reactive({})
 function tileStyle(i){const p=colRow(i);return {gridColumn:basePos[i]?.c??p.col,gridRow:basePos[i]?.r??p.row}}
 function isCollapsed(i){if(currentIndex.value<0)return false;const t=colRow(currentIndex.value);const r0=t.row<=2?t.row:t.row-1;const c0=t.col<=3?t.col:t.col-1;const p=colRow(i);return i!==currentIndex.value && p.row>=r0&&p.row<=r0+1&&p.col>=c0&&p.col<=c0+1}
-async function loadPlaylist(){try{const res=await fetch('/res/playlist.json');playlist.value=await res.json()}catch(e){playlist.value=[{title:'九万字',artist:'黄诗扶',audio:'/res/jiuwanzi.mp3',lyrics:'/res/jiuwanzi.txt'}]}}
+async function loadPlaylist(){try{const res=await fetch('/res/playlist.json');const items=await res.json();playlist.value=normalizePaths(items)}catch(e){playlist.value=normalizePaths([{title:'九万字',artist:'黄诗扶',audio:'res/jiuwanzi.mp3',lyrics:'res/jiuwanzi.txt',cover:'res/cover01.svg'}])}}
+function normalizePaths(items){return items.map(it=>{const fix=p=>!p?p:(p.startsWith('/')?p:`/${p}`);return {...it,audio:fix(it.audio),lyrics:fix(it.lyrics),cover:fix(it.cover)}})}
 function parseLrc(text){const lines=text.split(/\r?\n/);const result=[];for(const l of lines){const m=l.match(/\[(\d{2}):(\d{2})(?:\.(\d{2,3}))?\](.*)/);if(!m)continue;const mm=parseInt(m[1],10),ss=parseInt(m[2],10);const dec=m[3]?parseInt(m[3],10):0;const base=m[3]&&m[3].length===3?1000:100;const t=mm*60+ss+dec/base;const v=m[4].trim();result.push({t,v})}result.sort((a,b)=>a.t-b.t);return result}
 async function loadLyrics(url){if(!url)return[];const res=await fetch(url);const text=await res.text();return parseLrc(text)}
 function resetLayout(){for(let k=0;k<count;k++){const p=colRow(k);basePos[k]={c:p.col,r:p.row}}}

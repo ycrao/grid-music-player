@@ -14,7 +14,7 @@ Grid Music Player
 
 ### 预览图
 
-![grid-music-player](res/grid-music-player.png)
+![grid-music-player](public/res/grid-music-player.png)
 
 ### 技术栈
 
@@ -48,7 +48,7 @@ proj1/
 ├─ src/
 │  ├─ main.js            # 入口
 │  └─ App.vue            # 主界面与交互逻辑
-├─ res/                  # 音频、歌词与封面资源（当前放在根目录）
+├─ res/                  # 音频、歌词与封面资源（开发由中间件提供、构建复制到 dist/res）
 ├─ index.html            # 挂载点与入口脚本引用
 ├─ style.css             # 全局样式（栅格、歌词、波形等）
 ├─ vite.config.js        # Vite 配置（启用 Vue 插件）
@@ -99,9 +99,10 @@ proj1/
 - 歌词脉冲联动：`src/App.vue:64`
 - 样式与动画：`style.css:11, 18-37`
 
-### 构建与部署建议
+### 构建与部署
 
-- 生产环境推荐将资源迁移到 `public/res/`，使其被打包产物直接静态提供；路径保持为 `/res/...`
+- 开发：`vite.config.js` 内置 `serve-res-static` 中间件，将本地 `res/` 以 `/res` 路径提供
+- 构建：`npm run build` 后执行 `postbuild`，自动把 `res/` 复制到 `dist/res`，线上静态服务路径保持 `/res/...`
 - 如需基础路径（`base`）适配 CDN，修改 `vite.config.js` 的导出配置
 
 ### 常见问题
