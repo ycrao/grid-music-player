@@ -1,0 +1,86 @@
+[
+  {
+    "title": "九万字",
+    "artist": "黄诗扶",
+    "audio": "res/jiuwanzi.mp3",
+    "lyrics": "res/jiuwanzi.txt",
+    "cover": "res/cover01.svg"
+  },
+  {
+    "title": "春庭雪",
+    "artist": "DJ默涵版",
+    "audio": "res/chuntingxue.mp3",
+    "lyrics": "res/chuntingxue.txt",
+    "cover": "res/cover02.svg"
+  },
+  {
+    "title": "长生诀",
+    "artist": "西瓜JUN",
+    "audio": "res/changshengjue.mp3",
+    "lyrics": "res/changshengjue.txt",
+    "cover": "res/cover03.svg"
+  },
+  {
+    "title": "九万字",
+    "artist": "黄诗扶",
+    "audio": "res/jiuwanzi.mp3",
+    "lyrics": "res/jiuwanzi.txt",
+    "cover": "res/cover04.svg"
+  },
+  {
+    "title": "春庭雪",
+    "artist": "DJ默涵版",
+    "audio": "res/chuntingxue.mp3",
+    "lyrics": "res/chuntingxue.txt",
+    "cover": "res/cover05.svg"
+  },
+  {
+    "title": "长生诀",
+    "artist": "西瓜JUN",
+    "audio": "res/changshengjue.mp3",
+    "lyrics": "res/changshengjue.txt",
+    "cover": "res/cover06.svg"
+  },
+  {
+    "title": "九万字",
+    "artist": "黄诗扶",
+    "audio": "res/jiuwanzi.mp3",
+    "lyrics": "res/jiuwanzi.txt",
+    "cover": "res/cover07.svg"
+  },
+  {
+    "title": "春庭雪",
+    "artist": "DJ默涵版",
+    "audio": "res/chuntingxue.mp3",
+    "lyrics": "res/chuntingxue.txt",
+    "cover": "res/cover08.svg"
+  },
+  {
+    "title": "长生诀",
+    "artist": "西瓜JUN",
+    "audio": "res/changshengjue.mp3",
+    "lyrics": "res/changshengjue.txt",
+    "cover": "res/cover09.svg"
+  },
+  {
+    "title": "九万字",
+    "artist": "黄诗扶",
+    "audio": "res/jiuwanzi.mp3",
+    "lyrics": "res/jiuwanzi.txt",
+    "cover": "res/cover10.svg"
+  },
+  {
+    "title": "春庭雪",
+    "artist": "DJ默涵版",
+    "audio": "res/chuntingxue.mp3",
+    "lyrics": "res/chuntingxue.txt",
+    "cover": "res/cover11.svg"
+  },
+  {
+    "title": "长生诀",
+    "artist": "西瓜JUN",
+    "audio": "res/changshengjue.mp3",
+    "lyrics": "res/changshengjue.txt",
+    "cover": "res/cover12.svg"
+  }
+]
