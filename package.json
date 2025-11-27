@@ -1,6 +1,6 @@
 {
-  "name": "proj1-vue",
-  "version": "0.0.1",
+  "name": "grid-music-player",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
