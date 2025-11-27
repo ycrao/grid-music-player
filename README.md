@@ -44,11 +44,12 @@ Grid Music Player
 关键目录及文件如下：
 
 ```
-proj1/
+project/
 ├─ src/
-│  ├─ main.js            # 入口
-│  └─ App.vue            # 主界面与交互逻辑
-├─ res/                  # 音频、歌词与封面资源（开发由中间件提供、构建复制到 dist/res）
+│  ├─ main.js           # 入口
+│  └─ App.vue           # 主界面与交互逻辑
+├─ public/res/*.*        # 音频、歌词与封面资源（开发由中间件提供、构建复制到 dist/res）
+├─ scripts/copyRes.js    # 生产构建前拷贝静态资源相关脚本
 ├─ index.html            # 挂载点与入口脚本引用
 ├─ style.css             # 全局样式（栅格、歌词、波形等）
 ├─ vite.config.js        # Vite 配置（启用 Vue 插件）
@@ -57,11 +58,11 @@ proj1/
 
 ### 资源准备
 
-- 在 `res/` 目录放置：
+- 在 `public/res/` 目录放置：
   - 音频文件：`.mp3`
   - 歌词文件：`.lrc` 或含时间标签的 `.txt`
   - 封面图：建议使用 `.svg` 或 `.jpg/.png`
-- 播放列表：`res/playlist.json`
+- 播放列表：`public/res/playlist.json`
   ```json
   [
     {
@@ -101,13 +102,13 @@ proj1/
 
 ### 构建与部署
 
-- 开发：`vite.config.js` 内置 `serve-res-static` 中间件，将本地 `res/` 以 `/res` 路径提供
-- 构建：`npm run build` 后执行 `postbuild`，自动把 `res/` 复制到 `dist/res`，线上静态服务路径保持 `/res/...`
+- 开发：`vite.config.js` 内置 `serve-res-static` 中间件，将本地 `public/res/` 以 `/res` 路径提供
+- 构建：`npm run build` 后执行 `postbuild`，自动把 `public/res/` 复制到 `dist/res`，线上静态服务路径保持 `/res/...`
 - 如需基础路径（`base`）适配 CDN，修改 `vite.config.js` 的导出配置
 
 ### 常见问题
 
-- 看不到歌词：检查 `res/playlist.json` 中 `lyrics` 路径是否存在，时间标签是否规范；开发环境下查看控制台网络请求是否 404
+- 看不到歌词：检查 `public/res/playlist.json` 中 `lyrics` 路径是否存在，时间标签是否规范；开发环境下查看控制台网络请求是否 404
 - 音频无法播放：确认 `audio` 路径正确；浏览器自动播放策略可能阻止播放，需用户点击触发
 - 资源 404（构建后）：将 `res/` 迁移到 `public/`，或调整部署的静态资源目录
 
